@@ -17,8 +17,9 @@ namespace RedditImageDownloader.Data.Config
 
             builder.Property(e => e.PostId).HasMaxLength(25).IsUnicode();
             builder.Property(e => e.Url).HasMaxLength(100).IsUnicode();
+            builder.Property(e => e.FileName).HasMaxLength(255).IsUnicode();
             builder.Property(e => e.Processed).HasMaxLength(1).IsUnicode();
-            builder.Property(e => e.Downloaded).HasMaxLength(1).IsUnicode();
+            builder.Property(e => e.Downloaded).HasColumnType("datetime");
 
             builder.HasIndex(e => e.SourceId).HasName("IX_Entry_SourceId");
 

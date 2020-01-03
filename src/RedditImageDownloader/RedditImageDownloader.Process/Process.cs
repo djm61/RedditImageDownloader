@@ -52,7 +52,7 @@ namespace RedditImageDownloader.Process
                     var source1 = new Source { Name = "ImaginaryTamriel", NiceName = "Imaginary Tamriel", Url = "https://www.reddit.com/r/ImaginaryTamriel/", FeedUrl = "https://www.reddit.com/r/ImaginaryTamriel/.rss" };
                     var source2 = new Source { Name = "ImaginaryKnights", NiceName = "Imaginary Knights", Url = "https://www.reddit.com/r/ImaginaryKnights/", FeedUrl = "https://www.reddit.com/r/ImaginaryKnights/.rss" };
                     var source3 = new Source { Name = "ImaginaryWarriors", NiceName = "Imaginary Warriors", Url = "https://www.reddit.com/r/ImaginaryWarriors/", FeedUrl = "https://www.reddit.com/r/ImaginaryWarriors/.rss" };
-                    var source4 = new Source { Name = "ImaginaryBattlefields", NiceName = "ImaginaryBattlefields", Url = "https://www.reddit.com/r/ImaginaryBattlefields/", FeedUrl = "https://www.reddit.com/r/ImaginaryBattlefields/.rss" };
+                    var source4 = new Source { Name = "ImaginaryBattlefields", NiceName = "Imaginary Battlefields", Url = "https://www.reddit.com/r/ImaginaryBattlefields/", FeedUrl = "https://www.reddit.com/r/ImaginaryBattlefields/.rss" };
                     var source5 = new Source { Name = "ImaginaryWizards", NiceName = "Imaginary Wizards", Url = "https://www.reddit.com/r/ImaginaryWizards/", FeedUrl = "https://www.reddit.com/r/ImaginaryWizards/.rss" };
                     var source6 = new Source { Name = "ImaginaryNobles", NiceName = "Imaginary Nobles", Url = "https://www.reddit.com/r/ImaginaryNobles/", FeedUrl = "https://www.reddit.com/r/ImaginaryNobles/.rss" };
                     context.Sources.Add(source1);
@@ -88,7 +88,7 @@ namespace RedditImageDownloader.Process
             {
                 var entries = context.Entries
                     .Include(e => e.Source)
-                    .Where(e => e.Downloaded == EntityLiterals.No && e.Processed == EntityLiterals.No)
+                    .Where(e => e.Downloaded == null && e.Processed == EntityLiterals.No)
                     .ToList();
 
                 Parallel.ForEach(entries, DownloadImage);
@@ -179,8 +179,10 @@ namespace RedditImageDownloader.Process
                     client.DownloadFile(new Uri(entry.Url), path);
                 }
 
+                var filename = Path.GetFileName(path);
+                entry.FileName = filename;
                 entry.Processed = EntityLiterals.Yes;
-                entry.Downloaded = EntityLiterals.Yes;
+                entry.Downloaded = DateTime.UtcNow;
             }
             catch (Exception ex)
             {

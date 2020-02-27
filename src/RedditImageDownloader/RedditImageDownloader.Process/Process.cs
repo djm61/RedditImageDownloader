@@ -4,13 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.ServiceModel.Syndication;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+
 using HtmlAgilityPack;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+
 using RedditImageDownloader.Data;
 using RedditImageDownloader.Data.Entities;
 
@@ -44,25 +46,85 @@ namespace RedditImageDownloader.Process
 #if DEBUG
             using (var context = new RedditImageDownloaderContext(_loggerFactory, options))
             {
-                var existingSource = context.Sources
-                    .FirstOrDefault(s => s.Active == EntityLiterals.Yes && s.Deleted == EntityLiterals.No);
+                var source01 = new Source { Name = "ImaginaryTamriel", NiceName = "Imaginary Tamriel", Url = "https://www.reddit.com/r/ImaginaryTamriel/", FeedUrl = "https://www.reddit.com/r/ImaginaryTamriel/.rss" };
+                var source02 = new Source { Name = "ImaginaryKnights", NiceName = "Imaginary Knights", Url = "https://www.reddit.com/r/ImaginaryKnights/", FeedUrl = "https://www.reddit.com/r/ImaginaryKnights/.rss" };
+                var source03 = new Source { Name = "ImaginaryWarriors", NiceName = "Imaginary Warriors", Url = "https://www.reddit.com/r/ImaginaryWarriors/", FeedUrl = "https://www.reddit.com/r/ImaginaryWarriors/.rss" };
+                var source04 = new Source { Name = "ImaginaryBattlefields", NiceName = "Imaginary Battlefields", Url = "https://www.reddit.com/r/ImaginaryBattlefields/", FeedUrl = "https://www.reddit.com/r/ImaginaryBattlefields/.rss" };
+                var source05 = new Source { Name = "ImaginaryWizards", NiceName = "Imaginary Wizards", Url = "https://www.reddit.com/r/ImaginaryWizards/", FeedUrl = "https://www.reddit.com/r/ImaginaryWizards/.rss" };
+                var source06 = new Source { Name = "ImaginaryNobles", NiceName = "Imaginary Nobles", Url = "https://www.reddit.com/r/ImaginaryNobles/", FeedUrl = "https://www.reddit.com/r/ImaginaryNobles/.rss" };
+                var source07 = new Source { Name = "ImaginaryRuins", NiceName = "Imaginary Ruins", Url = "https://www.reddit.com/r/ImaginaryRuins/", FeedUrl = "https://www.reddit.com/r/ImaginaryRuins/.rss" };
+                var source08 = new Source { Name = "ImaginaryHorrors", NiceName = "Imaginary Horrors", Url = "https://www.reddit.com/r/ImaginaryHorrors/", FeedUrl = "https://www.reddit.com/r/ImaginaryHorrors/.rss" };
+                var source09 = new Source { Name = "ImaginaryVikings", NiceName = "Imaginary Vikings", Url = "https://www.reddit.com/r/ImaginaryVikings/", FeedUrl = "https://www.reddit.com/r/ImaginaryVikings/.rss" };
+                var source10 = new Source { Name = "ImaginaryCosmere", NiceName = "Imaginary Cosmere", Url = "https://www.reddit.com/r/imaginarycosmere/", FeedUrl = "https://www.reddit.com/r/imaginarycosmere/.rss" };
+                var source11 = new Source { Name = "ImaginaryBeasts", NiceName = "Imaginary Beasts", Url = "https://www.reddit.com/r/ImaginaryBeasts/", FeedUrl = "https://www.reddit.com/r/ImaginaryBeasts/.rss" };
 
+                var existingSource = context.Sources.FirstOrDefault(s => s.Name == source01.Name);
                 if (existingSource == null)
                 {
-                    var source1 = new Source { Name = "ImaginaryTamriel", NiceName = "Imaginary Tamriel", Url = "https://www.reddit.com/r/ImaginaryTamriel/", FeedUrl = "https://www.reddit.com/r/ImaginaryTamriel/.rss" };
-                    var source2 = new Source { Name = "ImaginaryKnights", NiceName = "Imaginary Knights", Url = "https://www.reddit.com/r/ImaginaryKnights/", FeedUrl = "https://www.reddit.com/r/ImaginaryKnights/.rss" };
-                    var source3 = new Source { Name = "ImaginaryWarriors", NiceName = "Imaginary Warriors", Url = "https://www.reddit.com/r/ImaginaryWarriors/", FeedUrl = "https://www.reddit.com/r/ImaginaryWarriors/.rss" };
-                    var source4 = new Source { Name = "ImaginaryBattlefields", NiceName = "Imaginary Battlefields", Url = "https://www.reddit.com/r/ImaginaryBattlefields/", FeedUrl = "https://www.reddit.com/r/ImaginaryBattlefields/.rss" };
-                    var source5 = new Source { Name = "ImaginaryWizards", NiceName = "Imaginary Wizards", Url = "https://www.reddit.com/r/ImaginaryWizards/", FeedUrl = "https://www.reddit.com/r/ImaginaryWizards/.rss" };
-                    var source6 = new Source { Name = "ImaginaryNobles", NiceName = "Imaginary Nobles", Url = "https://www.reddit.com/r/ImaginaryNobles/", FeedUrl = "https://www.reddit.com/r/ImaginaryNobles/.rss" };
-                    context.Sources.Add(source1);
-                    context.Sources.Add(source2);
-                    context.Sources.Add(source3);
-                    context.Sources.Add(source4);
-                    context.Sources.Add(source5);
-                    context.Sources.Add(source6);
-                    context.SaveChanges();
+                    context.Sources.Add(source01);
                 }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source02.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source02);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source03.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source03);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source04.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source04);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source05.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source05);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source06.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source06);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source07.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source07);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source08.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source08);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source09.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source09);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source10.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source10);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source11.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source11);
+                }
+
+                context.SaveChanges();
             }
 #endif
 
@@ -150,7 +212,7 @@ namespace RedditImageDownloader.Process
                                 }
 
                                 _logger.LogDebug("GetFromSource() | creating entry and adding");
-                                entry = new Entry {SourceId = source.Id, PostId = item.Id, Url = imgSrc};
+                                entry = new Entry { SourceId = source.Id, PostId = item.Id, Url = imgSrc };
                                 context.Entries.Add(entry);
                                 context.SaveChanges();
                             }

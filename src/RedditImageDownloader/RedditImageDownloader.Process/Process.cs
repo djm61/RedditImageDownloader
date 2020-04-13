@@ -67,6 +67,10 @@ namespace RedditImageDownloader.Process
                 var source19 = new Source { Name = "ImaginaryTaverns", NiceName = "Imaginary Taverns", Url = "https://www.reddit.com/r/ImaginaryTaverns/", FeedUrl = "https://www.reddit.com/r/ImaginaryTaverns/.rss" };
                 var source20 = new Source { Name = "ImaginaryLeviathans", NiceName = "Imaginary Leviathans", Url = "https://www.reddit.com/r/ImaginaryLeviathans/", FeedUrl = "https://www.reddit.com/r/ImaginaryLeviathans/.rss" };
                 var source21 = new Source { Name = "ImaginaryDerelicts", NiceName = "Imaginary Derelicts", Url = "https://www.reddit.com/r/ImaginaryDerelicts/", FeedUrl = "https://www.reddit.com/r/ImaginaryDerelicts/.rss" };
+                var source22 = new Source { Name = "ImaginaryStarships", NiceName = "Imaginary Starships", Url = "https://www.reddit.com/r/ImaginaryStarships/", FeedUrl = "https://www.reddit.com/r/ImaginaryStarships/.rss" };
+                var source23 = new Source { Name = "ReasonableFantasy", NiceName = "Reasonable Fantasy", Url = "https://www.reddit.com/r/ReasonableFantasy/", FeedUrl = "https://www.reddit.com/r/ReasonableFantasy/.rss" };
+                var source24 = new Source { Name = "ImaginaryJedi", NiceName = "Imaginary Jedi", Url = "https://www.reddit.com/r/ImaginaryJedi/", FeedUrl = "https://www.reddit.com/r/ImaginaryJedi/.rss" };
+                var source25 = new Source { Name = "ImaginaryTemples", NiceName = "Imaginary Temples", Url = "https://www.reddit.com/r/ImaginaryTemples/", FeedUrl = "https://www.reddit.com/r/ImaginaryTemples/.rss" };
 
                 var existingSource = context.Sources.FirstOrDefault(s => s.Name == source01.Name);
                 if (existingSource == null)
@@ -192,6 +196,30 @@ namespace RedditImageDownloader.Process
                 if (existingSource == null)
                 {
                     context.Sources.Add(source21);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source22.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source22);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source23.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source23);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source24.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source24);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source25.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source25);
                 }
 
                 context.SaveChanges();

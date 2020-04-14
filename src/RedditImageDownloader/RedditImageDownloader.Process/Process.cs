@@ -70,7 +70,7 @@ namespace RedditImageDownloader.Process
                 var source22 = new Source { Name = "ImaginaryStarships", NiceName = "Imaginary Starships", Url = "https://www.reddit.com/r/ImaginaryStarships/", FeedUrl = "https://www.reddit.com/r/ImaginaryStarships/.rss" };
                 var source23 = new Source { Name = "ReasonableFantasy", NiceName = "Reasonable Fantasy", Url = "https://www.reddit.com/r/ReasonableFantasy/", FeedUrl = "https://www.reddit.com/r/ReasonableFantasy/.rss" };
                 var source24 = new Source { Name = "ImaginaryJedi", NiceName = "Imaginary Jedi", Url = "https://www.reddit.com/r/ImaginaryJedi/", FeedUrl = "https://www.reddit.com/r/ImaginaryJedi/.rss" };
-                var source25 = new Source { Name = "ImaginaryTemples", NiceName = "Imaginary Temples", Url = "https://www.reddit.com/r/ImaginaryTemples/", FeedUrl = "https://www.reddit.com/r/ImaginaryTemples/.rss" };
+                var source25 = new Source { Name = "ImaginaryFutureWar", NiceName = "Imaginary Future War", Url = "https://www.reddit.com/r/ImaginaryFutureWar/", FeedUrl = "https://www.reddit.com/r/ImaginaryFutureWar/.rss" };
 
                 var existingSource = context.Sources.FirstOrDefault(s => s.Name == source01.Name);
                 if (existingSource == null)

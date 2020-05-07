@@ -13,6 +13,7 @@ namespace RedditImageDownloader.Data.Entities
         public string PostId { get; set; }
         public string Url { get; set; }
         public string FileName { get; set; }
+        public string Link { get; set; }
         public string Processed { get; set; }
         public DateTime? Downloaded { get; set; }
 

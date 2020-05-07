@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RedditImageDownloader.Logging\RedditImageDownloader.Logging.csproj" />
+    <ProjectReference Include="..\RedditImageDownloader.Model\RedditImageDownloader.Model.csproj" />
+  </ItemGroup>
+
+</Project>

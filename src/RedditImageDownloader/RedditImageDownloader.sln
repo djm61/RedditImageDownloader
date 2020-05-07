@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.Console", "RedditImageDownloader.Console\RedditImageDownloader.Console.csproj", "{681006E9-0322-4610-85F5-B7A9F0AE4749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedditImageDownloader.Console", "RedditImageDownloader.Console\RedditImageDownloader.Console.csproj", "{681006E9-0322-4610-85F5-B7A9F0AE4749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.Data", "RedditImageDownloader.Data\RedditImageDownloader.Data.csproj", "{13EE7F4D-4995-4D1A-935C-E6ABB84B4699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedditImageDownloader.Data", "RedditImageDownloader.Data\RedditImageDownloader.Data.csproj", "{13EE7F4D-4995-4D1A-935C-E6ABB84B4699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.Process", "RedditImageDownloader.Process\RedditImageDownloader.Process.csproj", "{E91A1488-008D-42F6-B617-23D629089A75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedditImageDownloader.Process", "RedditImageDownloader.Process\RedditImageDownloader.Process.csproj", "{E91A1488-008D-42F6-B617-23D629089A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.Logging", "RedditImageDownloader.Logging\RedditImageDownloader.Logging.csproj", "{997ADAB9-4659-4960-AB72-0154E369DD7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedditImageDownloader.Logging", "RedditImageDownloader.Logging\RedditImageDownloader.Logging.csproj", "{997ADAB9-4659-4960-AB72-0154E369DD7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedditImageDownloader.Api", "RedditImageDownloader.Api\RedditImageDownloader.Api.csproj", "{7919B9E0-6CF7-4CC7-AEB2-3E65FD4F82EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.Model", "RedditImageDownloader.Model\RedditImageDownloader.Model.csproj", "{1B1B7036-7FB6-493A-86D4-9D02FEA99C5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditImageDownloader.ApiClient", "RedditImageDownloader.ApiClient\RedditImageDownloader.ApiClient.csproj", "{DFFF8C7E-2509-498F-95A6-AF2B8283C858}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{997ADAB9-4659-4960-AB72-0154E369DD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{997ADAB9-4659-4960-AB72-0154E369DD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{997ADAB9-4659-4960-AB72-0154E369DD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7919B9E0-6CF7-4CC7-AEB2-3E65FD4F82EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7919B9E0-6CF7-4CC7-AEB2-3E65FD4F82EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7919B9E0-6CF7-4CC7-AEB2-3E65FD4F82EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7919B9E0-6CF7-4CC7-AEB2-3E65FD4F82EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1B7036-7FB6-493A-86D4-9D02FEA99C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1B7036-7FB6-493A-86D4-9D02FEA99C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1B7036-7FB6-493A-86D4-9D02FEA99C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1B7036-7FB6-493A-86D4-9D02FEA99C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFFF8C7E-2509-498F-95A6-AF2B8283C858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFF8C7E-2509-498F-95A6-AF2B8283C858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFF8C7E-2509-498F-95A6-AF2B8283C858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFF8C7E-2509-498F-95A6-AF2B8283C858}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -31,16 +31,16 @@ namespace RedditImageDownloader.Data
 
         #endregion
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-                .UseSqlite("Data Source=RedditImageDownloader.sqlite")
-                .UseLoggerFactory(_loggerFactory)
-                .EnableDetailedErrors()
-                .EnableSensitiveDataLogging();
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder
+        //        .UseSqlite("Data Source=c:\\temp\\RedditImageDownloader.sqlite")
+        //        .UseLoggerFactory(_loggerFactory)
+        //        .EnableDetailedErrors()
+        //        .EnableSensitiveDataLogging();
 
-            base.OnConfiguring(optionsBuilder);
-        }
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -71,6 +71,9 @@ namespace RedditImageDownloader.Process
                 var source23 = new Source { Name = "ReasonableFantasy", NiceName = "Reasonable Fantasy", Url = "https://www.reddit.com/r/ReasonableFantasy/", FeedUrl = "https://www.reddit.com/r/ReasonableFantasy/.rss" };
                 var source24 = new Source { Name = "ImaginaryJedi", NiceName = "Imaginary Jedi", Url = "https://www.reddit.com/r/ImaginaryJedi/", FeedUrl = "https://www.reddit.com/r/ImaginaryJedi/.rss" };
                 var source25 = new Source { Name = "ImaginaryFutureWar", NiceName = "Imaginary Future War", Url = "https://www.reddit.com/r/ImaginaryFutureWar/", FeedUrl = "https://www.reddit.com/r/ImaginaryFutureWar/.rss" };
+                var source26 = new Source { Name = "ImaginaryWastelands", NiceName = "Imaginary Wastelands", Url = "https://www.reddit.com/r/ImaginaryWastelands/", FeedUrl = "https://www.reddit.com/r/ImaginaryWastelands/.rss" };
+                var source27 = new Source { Name = "SpecArt", NiceName = "Spec Art", Url = "https://www.reddit.com/r/SpecArt/", FeedUrl = "https://www.reddit.com/r/SpecArt/.rss" };
+                var source28 = new Source { Name = "ImaginaryHybrids", NiceName = "Imaginary Hybrids", Url = "https://www.reddit.com/r/ImaginaryHybrids/", FeedUrl = "https://www.reddit.com/r/ImaginaryHybrids/.rss" };
 
                 var existingSource = context.Sources.FirstOrDefault(s => s.Name == source01.Name);
                 if (existingSource == null)
@@ -222,6 +225,24 @@ namespace RedditImageDownloader.Process
                     context.Sources.Add(source25);
                 }
 
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source26.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source26);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source27.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source27);
+                }
+
+                existingSource = context.Sources.FirstOrDefault(s => s.Name == source28.Name);
+                if (existingSource == null)
+                {
+                    context.Sources.Add(source28);
+                }
+
                 context.SaveChanges();
             }
 #endif
@@ -310,7 +331,7 @@ namespace RedditImageDownloader.Process
                                 }
 
                                 _logger.LogDebug("GetFromSource() | creating entry and adding");
-                                entry = new Entry { SourceId = source.Id, PostId = item.Id, Url = imgSrc };
+                                entry = new Entry { SourceId = source.Id, PostId = item.Id, Url = imgSrc, Link = item.Links.FirstOrDefault()?.Uri?.AbsoluteUri ?? string.Empty };
                                 context.Entries.Add(entry);
                                 context.SaveChanges();
                             }

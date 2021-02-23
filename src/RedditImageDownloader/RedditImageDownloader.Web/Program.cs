@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using Serilog;
 
-namespace RedditImageDownloader.Api
+namespace RedditImageDownloader.Web
 {
     public class Program
     {
@@ -27,10 +27,10 @@ namespace RedditImageDownloader.Api
                 {
                     logging.ClearProviders();
                     logging.AddSerilog(new LoggerConfiguration().ReadFrom.Configuration(hostingContext.Configuration)
-                    .Enrich.WithThreadId()
-                    .CreateLogger());
+                        .Enrich.WithThreadId()
+                        .CreateLogger());
                 })
-            .ConfigureWebHostDefaults(webBuilder =>
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+
 using RedditImageDownloader.ApiClient.WebRequest;
+
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -24,7 +26,7 @@ namespace RedditImageDownloader.ApiClient
         {
             _logger.LogDebug($"GetEntries() | parameters[{parameters}]");
 
-            var relativePath = "/home";
+            var relativePath = "/home/entries";
             HttpResponseMessageTyped<List<Model.Entry>> apiResponse;
             try
             {

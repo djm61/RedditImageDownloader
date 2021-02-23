@@ -5,7 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RedditImageDownloader.Data;
-using RedditImageDownloader.Logging;
+
+using Serilog;
 
 namespace RedditImageDownloader.Console
 {
@@ -59,14 +60,22 @@ namespace RedditImageDownloader.Console
 
             serviceCollection.AddSingleton(configuration);
 
+            var serilogLogger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .Enrich.WithThreadId()
+                .CreateLogger();
+
             serviceCollection
                 .AddLogging(configure =>
                 {
-                    configure.AddConfiguration(configuration.GetSection("Logging"));
-                    configure.AddConsole();
-                    configure.AddProvider(new Log4NetProvider("log4net.config", false));
+                    //configure.AddConfiguration(configuration.GetSection("Logging"));
+                    //configure.AddConsole();
+                    //configure.AddProvider(new Log4NetProvider("log4net.config", false));
+                    configure.ClearProviders();
+                    configure.AddSerilog(logger: serilogLogger, dispose: true);
                 })
-                .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug);
+                //.Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug)
+                ;
 
             var connectionString = configuration.GetConnectionString("Default");
             if (string.IsNullOrWhiteSpace(connectionString))
